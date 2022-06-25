@@ -14,7 +14,8 @@ import 'firebase_options.dart';
 import 'home.dart';
 import 'home.dart';
 import 'profile.dart';
-import 'signup.dart';
+import 'login/signup.dart';
+import 'login/forgotpass.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -47,6 +48,7 @@ class MyApp extends StatelessWidget {
         '/addApartments': (BuildContext context) => const AddApartmentsPage(),
         '/backupRestore': (BuildContext context) => const BackupRestorePage(),
         '/WaterQuality': (BuildContext context) => const WaterQualityPage(),
+        '/forgotpass': (BuildContext context) => const ForgotPassPage(),
       },
     );
   }
@@ -106,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           const SizedBox(
-            height: 350, //gap
+            height: 390, //gap
           ),
           // ignore: avoid_unnecessary_containers
           Container(
@@ -167,7 +169,7 @@ class _LoginPageState extends State<LoginPage> {
                     children: <Widget>[
                       InkWell(
                         onTap: () {
-                          Navigator.of(context).pushNamed('/signup');
+                          Navigator.of(context).pushNamed('/forgotpass');
                         },
                         child: Text(
                           "FORGOT YOUR PASSWORD? CLICK HERE",
