@@ -117,7 +117,7 @@ class _LoginPageState extends State<LoginPage> {
                 Container(
                   padding: const EdgeInsets.only(top: 120, left: 20, right: 30),
                   child: const Text(
-                    "WELCOME!",
+                    "WELCOME Here!",
                     style: TextStyle(
                         fontSize: 30,
                         fontStyle: FontStyle.italic,
