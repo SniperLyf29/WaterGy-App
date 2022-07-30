@@ -1,5 +1,6 @@
 // ignore_for_file: duplicate_import, depend_on_referenced_packages
 
+import 'package:animated_background/animated_background.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -13,9 +14,9 @@ import 'drawer/backupRestore.dart';
 import 'firebase_options.dart';
 import 'home.dart';
 import 'home.dart';
-import 'profile.dart';
-import 'login/signup.dart';
 import 'login/forgotpass.dart';
+import 'login/signup.dart';
+import 'profile.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -98,156 +99,158 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-            child: Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-            image: AssetImage('Assets/water.png'), fit: BoxFit.cover),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          const SizedBox(
-            height: 50, //gap
+        resizeToAvoidBottomInset: true, //use this
+        body: SingleChildScrollView(
+            child: Center(
+                child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('Assets/water.png'), fit: BoxFit.cover),
           ),
-          // ignore: avoid_unnecessary_containers
-          Container(
-            child: Stack(
-              children: <Widget>[
-                Container(
-                  padding: const EdgeInsets.only(top: 120, left: 20, right: 30),
-                  child: const Text(
-                    "WELCOME!",
-                    style: TextStyle(
-                        fontSize: 30,
-                        fontStyle: FontStyle.italic,
-                        color: Colors.white),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              const SizedBox(height: 400 //gap
                   ),
-                )
-              ],
-            ),
-          ),
-          Container(
-            padding: const EdgeInsets.only(top: 40, left: 20, right: 30),
-            child: Column(
-              children: <Widget>[
-                (TextField(
-                  controller: _emailController,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(25)),
-                    fillColor: Colors.white,
-                    filled: true,
-                    labelText: "EMAIL",
-                    hintText: 'ENTER YOUR EMAIL AS ABC@XYZ.COM',
-                    labelStyle: TextStyle(
-                        fontFamily: 'Montserrat', color: Colors.black),
-                  ),
-                )),
-                const SizedBox(
-                  height: 20,
-                ),
-                TextField(
-                  controller: _passwordController,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(25)),
-                    fillColor: Colors.white,
-                    filled: true,
-                    labelText: "PASSWORD",
-                    hintText: "ENTER YOUR PASSWORD",
-                    labelStyle: TextStyle(
-                        fontFamily: 'Montserrat', color: Colors.black),
-                  ),
-                  obscureText: true,
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      InkWell(
-                        onTap: () {
-                          Navigator.of(context).pushNamed('/forgotpass');
-                        },
-                        child: Text(
-                          "FORGOT YOUR PASSWORD? CLICK HERE",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: "Montserrat",
-                              decoration: TextDecoration.underline),
-                        ),
+              // ignore: avoid_unnecessary_containers
+              Container(
+                child: Stack(
+                  children: <Widget>[
+                    Container(
+                      padding:
+                          const EdgeInsets.only(top: 120, left: 20, right: 30),
+                      child: const Text(
+                        "WELCOME!",
+                        style: TextStyle(
+                            fontSize: 30,
+                            fontStyle: FontStyle.italic,
+                            color: Colors.white),
                       ),
-                    ]),
-                Container(
-                    alignment: Alignment.center,
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: Text(
-                      _success == 1
-                          ? ''
-                          : (_success == 2
-                              ? 'Successfully signed in ' + _userEmail
-                              : 'Sign in failed'),
-                      style: const TextStyle(color: Colors.blue),
-                    )),
-                const SizedBox(
-                  height: 40,
+                    )
+                  ],
                 ),
-                // ignore: sized_box_for_whitespace
-                Container(
-                  height: 40,
-                  child: Material(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.blue,
-                    elevation: 7,
-                    child: MaterialButton(
-                      onPressed: () {
-                        _singIn();
-                        Navigator.of(context).pushNamed('/home');
-                      },
-                      child: const Center(
+              ),
+              Container(
+                padding: const EdgeInsets.only(top: 40, left: 20, right: 30),
+                child: Column(
+                  children: <Widget>[
+                    (TextField(
+                      controller: _emailController,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(25)),
+                        fillColor: Colors.white,
+                        filled: true,
+                        labelText: "EMAIL",
+                        hintText: 'ENTER YOUR EMAIL AS ABC@XYZ.COM',
+                        labelStyle: TextStyle(
+                            fontFamily: 'Montserrat', color: Colors.black),
+                      ),
+                    )),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    TextField(
+                      controller: _passwordController,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(25)),
+                        fillColor: Colors.white,
+                        filled: true,
+                        labelText: "PASSWORD",
+                        hintText: "ENTER YOUR PASSWORD",
+                        labelStyle: TextStyle(
+                            fontFamily: 'Montserrat', color: Colors.black),
+                      ),
+                      obscureText: true,
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          InkWell(
+                            onTap: () {
+                              Navigator.of(context).pushNamed('/forgotpass');
+                            },
+                            child: Text(
+                              "FORGOT YOUR PASSWORD? CLICK HERE",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: "Montserrat",
+                                  decoration: TextDecoration.underline),
+                            ),
+                          ),
+                        ]),
+                    Container(
+                        alignment: Alignment.center,
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: Text(
-                          'LOGIN',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: "Montserrat",
+                          _success == 1
+                              ? ''
+                              : (_success == 2
+                                  ? 'Successfully signed in ' + _userEmail
+                                  : 'Sign in failed'),
+                          style: const TextStyle(color: Colors.blue),
+                        )),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    // ignore: sized_box_for_whitespace
+                    Container(
+                      height: 40,
+                      child: Material(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.blue,
+                        elevation: 7,
+                        child: MaterialButton(
+                          onPressed: () {
+                            _singIn();
+                            Navigator.of(context).pushNamed('/home');
+                          },
+                          child: const Center(
+                            child: Text(
+                              'LOGIN',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: "Montserrat",
+                              ),
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                ),
 
-                const SizedBox(
-                  height: 15,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    InkWell(
-                      onTap: () {
-                        Navigator.of(context).pushNamed('/signup');
-                      },
-                      child: const Text(
-                        'REGISTER',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.bold,
-                            decoration: TextDecoration.underline),
-                      ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).pushNamed('/signup');
+                          },
+                          child: const Text(
+                            'REGISTER',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.bold,
+                                decoration: TextDecoration.underline),
+                          ),
+                        )
+                      ],
                     )
                   ],
-                )
-              ],
-            ),
-          )
-        ],
-      ),
-    )));
+                ),
+              )
+            ],
+          ),
+        ))));
   }
 }
 

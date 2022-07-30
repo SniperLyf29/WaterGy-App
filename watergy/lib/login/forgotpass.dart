@@ -1,4 +1,4 @@
-// ignore_for_file: sized_box_for_whitespace, depend_on_referenced_packages
+//re routing to signup page changing it later
 
 import 'package:firebase_auth/firebase_auth.dart';
 // ignore: unused_import
