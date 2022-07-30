@@ -107,10 +107,25 @@ class _LoginPageState extends State<LoginPage> {
             image: DecorationImage(
                 image: AssetImage('Assets/water.png'), fit: BoxFit.cover),
           ),
+<<<<<<< HEAD
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               const SizedBox(height: 400 //gap
+=======
+          // ignore: avoid_unnecessary_containers
+          Container(
+            child: Stack(
+              children: <Widget>[
+                Container(
+                  padding: const EdgeInsets.only(top: 120, left: 20, right: 30),
+                  child: const Text(
+                    "WELCOME Here!",
+                    style: TextStyle(
+                        fontSize: 30,
+                        fontStyle: FontStyle.italic,
+                        color: Colors.white),
+>>>>>>> 1f211813b756c6577c2bd7228dca0d157852bbfc
                   ),
               // ignore: avoid_unnecessary_containers
               Container(
